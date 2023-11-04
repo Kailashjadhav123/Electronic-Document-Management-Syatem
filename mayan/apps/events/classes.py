@@ -1,14 +1,14 @@
 import csv
 import logging
 
-from furl import furl
+# from furl import furl
 
 from django.apps import apps
 from django.contrib.auth import get_user_model
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
-from actstream import action
+# from actstream import action
 
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
 from mayan.apps.common.menus import menu_list_facet

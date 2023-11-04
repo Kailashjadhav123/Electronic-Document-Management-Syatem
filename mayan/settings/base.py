@@ -3,7 +3,7 @@ import os
 import sys
 
 from django.core.exceptions import ImproperlyConfigured
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 from mayan.apps.smart_settings.literals import COMMAND_NAME_SETTINGS_REVERT
 from mayan.apps.smart_settings.utils import SettingNamespaceSingleton
@@ -151,6 +151,7 @@ INSTALLED_APPS = (
     'mayan.apps.web_links',
     # Placed after rest_api to allow template overriding.
     'drf_yasg',
+    'mayan.apps.myapp'
 )
 
 MIDDLEWARE = (
@@ -417,3 +418,15 @@ if not DATABASES:
                 )
             }
         }
+
+
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
+
+
+DEBUG = True

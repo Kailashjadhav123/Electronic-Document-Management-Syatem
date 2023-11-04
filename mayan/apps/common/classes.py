@@ -2,7 +2,7 @@ from django.conf import settings
 from django.contrib import contenttypes
 from django.db import models
 
-import mptt
+# import mptt
 
 from mayan.apps.acls.classes import ModelPermission
 

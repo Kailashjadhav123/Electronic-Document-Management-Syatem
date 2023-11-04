@@ -2,9 +2,9 @@ import errno
 import functools
 import os
 
-import yaml
+# import yaml
 
-from mayan.apps.common.serialization import yaml_load
+# from mayan.apps.common.serialization import yaml_load
 from mayan.apps.templating.classes import Template
 
 from .literals import (
