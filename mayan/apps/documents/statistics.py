@@ -3,7 +3,7 @@ from django.db.models import Count
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
-# import qsstats
+import qsstats
 
 from mayan.apps.mayan_statistics.classes import (
     StatisticNamespace, StatisticTypeDoughnutChart, StatisticTypeLineChart

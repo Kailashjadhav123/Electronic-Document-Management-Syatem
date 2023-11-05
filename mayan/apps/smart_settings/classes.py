@@ -6,16 +6,15 @@ import re
 from shutil import copyfile
 import sys
 
-# import yaml
+import yaml
 
 from django.conf import settings
-from django.shortcuts import redirect
 from django.utils.encoding import force_bytes, force_text
 from django.utils.functional import Promise
 from django.utils.translation import ugettext_lazy as _
 
 from mayan.apps.common.class_mixins import AppsModuleLoaderMixin
-# from mayan.apps.common.serialization import yaml_dump, yaml_load
+from mayan.apps.common.serialization import yaml_dump, yaml_load
 
 from .exceptions import BaseSettingsException
 from .literals import (
@@ -201,11 +200,10 @@ class Setting:
 
     @staticmethod
     def serialize_value(value):
-        result = 0
-        # result = yaml_dump(
-        #     allow_unicode=True, data=Setting.express_promises(value=value),
-        #     default_flow_style=False
-        # )
+        result = yaml_dump(
+            allow_unicode=True, data=Setting.express_promises(value=value),
+            default_flow_style=False
+        )
         # safe_dump returns bytestrings
         # Disregard the last 3 dots that mark the end of the YAML document
         if force_text(s=result).endswith('...\n'):
@@ -240,10 +238,9 @@ class Setting:
                 if (filter_term and filter_term.lower() in setting.global_name.lower()) or not filter_term:
                     dictionary[setting.global_name] = Setting.express_promises(value=setting.value)
 
-        # return yaml_dump(
-        #     data=dictionary, default_flow_style=False
-        # )
-        return redirect ("/")
+        return yaml_dump(
+            data=dictionary, default_flow_style=False
+        )
 
     @classmethod
     def get(cls, global_name):
@@ -286,7 +283,7 @@ class Setting:
             try:
                 with open(file=path, mode='w') as file_object:
                     file_object.write(
-                        "cls.dump_data()"
+                        cls.dump_data()
                     )
             except IOError as exception:
                 if exception.errno == errno.ENOENT:

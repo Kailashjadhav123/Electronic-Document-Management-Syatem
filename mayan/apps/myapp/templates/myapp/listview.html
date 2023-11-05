@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h1 {
+            text-align: center;
+            font-family: arial, sans-serif;
+            border-collapse: collapse;
+            width: 100%;
+          }
+
+        table {
+          font-family: arial, sans-serif;
+          border-collapse: collapse;
+          width: 100%;
+        }
+        
+        td, th {
+          border: 1px solid #dddddd;
+          text-align: center;
+          padding: 8px;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #dddddd;
+        }
+        </style>
+</head>
+<body>
+    <h1>Document Details</h1>
+    <ul>
+            <table>
+                <tr>
+                  <th>Sr No</th>
+                  <th>Description</th>
+                  <th>File Name</th>
+                </tr>
+                {% for object in context %}
+                <tr>
+                  <td><a href="{% url 'detail' object.id %}"> {{object.id}}</a>
+                  <td>{{object.description}}</td>
+                  <td>{{object.file}}</td>
+                </tr>
+                {% endfor %}
+              </table>
+        
+    </ul>
+</body>
+</html>

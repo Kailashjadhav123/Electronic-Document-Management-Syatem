@@ -1,7 +1,7 @@
 import datetime
 import unicodedata
 
-# import dateparser
+import dateparser
 import dateutil
 
 from django.utils.translation import ugettext_lazy as _

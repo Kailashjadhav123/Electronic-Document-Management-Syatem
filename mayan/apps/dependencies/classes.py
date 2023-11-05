@@ -1,14 +1,14 @@
 import json
 from io import BytesIO
 import logging
-# from packaging import version
+from packaging import version
 import pkg_resources
 import shutil
 import sys
 
-# from furl import furl
+from furl import furl
 import requests
-# from semver import max_satisfying
+from semver import max_satisfying
 
 from django.apps import apps
 from django.utils.functional import cached_property
